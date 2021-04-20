@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_Chat">
+
+
+    <fragment
+        android:id="@+id/nav_Chat"
+        android:name="com.example.brobot.ui.home.HomeFragment"
+        android:label="@string/menu_Chat"
+        tools:layout="@layout/activity_chat">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_MoodTracker"
+        android:name="com.example.brobot.ui.gallery.GalleryFragment"
+        android:label="@string/moodTracker"
+        tools:layout="@layout/activity_mood_tracker" />
+
+    <fragment
+        android:id="@+id/nav_DailyJournal"
+        android:name="com.example.brobot.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_dailyJournal"
+        tools:layout="@layout/activity_daily_journal" />
+
+
+</navigation>

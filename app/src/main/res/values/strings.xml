@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Bro Bot</string>
+    <string name="logo_description">Bro Bot Logo</string>
+    <string name="email_hint">Email/Username</string>
+    <string name="password_hint">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+
+    <string name="email">Email</string>
+    <string name="enterEmail">Enter Your Email</string>
+
+    <string name="signInMessage">Hi There ! Always Here For You</string>
+    <string name="signUpMessage">Welcome ! Lets Get To Know Each Other Better</string>
+
+    <string name="forgotPassword">Forgot Password?</string>
+    <string name="haveAccount">Already Have Account?</string>
+
+    <string name="title_activity_chat">chatActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">BroBot</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="nav_header_desc">User Image</string>
+    <string name="userName">User Name</string>
+
+
+    <string name="moodTracker">Mood Tracker</string>
+    <string name="trackByDate">Track By Date:</string>
+    <string name="goBack">Go Back</string>
+    <string name="sayOnMind">Say What\'s on Your Mind </string>
+    <string name="menu_Chat">Chat</string>
+    <string name="menu_dailyJournal">Daily Journal</string>
+    <string name="menu_Interests">Interests</string>
+    <string name="menu_Theme">Dark Theme</string>
+    <string name="Setting">Settings</string>
+    <string name="title_activity_daily_journal">Daily Journal</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_interest">InterestActivity</string>
+</resources>
