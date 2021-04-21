@@ -40,6 +40,30 @@
         app:layout_constraintTop_toBottomOf="@+id/txtSignUp" />
 
     <TextView
+        android:id="@+id/signuptvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/userName"
+        android:textColor="@color/colorPrimary"
+
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/signUpMessage" />
+
+    <EditText
+        android:id="@+id/signupetUserName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="@string/enterName"
+        android:inputType="textWebEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/signuptvUserName" />
+
+
+    <TextView
         android:id="@+id/signuptvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,7 +72,7 @@
         android:textColor="@color/colorPrimary"
 
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/signUpMessage" />
+        app:layout_constraintTop_toBottomOf="@+id/signupetUserName" />
 
     <TextView
         android:id="@+id/signuptvPassword"
