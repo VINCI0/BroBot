@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item android:title="@string/moodTracker"
-        />
 
     <group android:checkableBehavior="single">
         <item
@@ -25,11 +23,15 @@
             android:icon="@drawable/interests"
             android:title="@string/menu_Interests" />
 
-        <item
-            android:id="@+id/nav_Dark"
-            android:icon="@drawable/settings"
-            android:title="@string/Setting"
-            />
 
     </group>
+
+    <item
+        android:id="@+id/nav_Settings"
+        android:icon="@drawable/settings"
+        android:title="@string/Setting"
+        />
+
+
+
 </menu>

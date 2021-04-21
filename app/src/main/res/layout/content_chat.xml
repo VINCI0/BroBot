@@ -5,23 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_chat"
     android:layout_margin="10dp">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMessages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/etMessage"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/mobile_navigation" />
+        />
+
+
 
     <EditText
-        android:id="@+id/message"
-        android:layout_width="0dp"
+        android:id="@id/etMessage"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
@@ -32,19 +34,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/fbMessageSend"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewMessages" />
+        app:layout_constrainedWidth="true"
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewMessages"
-        android:layout_height="match_parent"
-        app:layout_constrainedHeight="true"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/message"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment"
-        app:layout_constraintVertical_bias="0.0" />
+        />
 
 
 
@@ -52,11 +44,12 @@
         android:id="@+id/fbMessageSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/message"
+        app:backgroundTint="@color/colorPrimary"
+        app:tint="@color/colorLightFont"
+        app:srcCompat="@drawable/audio"
+        app:layout_constraintBottom_toBottomOf="@+id/etMessage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/message"
+        app:layout_constraintTop_toTopOf="@+id/etMessage"
         tools:visibility="visible" />
 
 

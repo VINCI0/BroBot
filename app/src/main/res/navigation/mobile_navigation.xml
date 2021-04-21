@@ -20,11 +20,6 @@
         android:label="@string/moodTracker"
         tools:layout="@layout/activity_mood_tracker" />
 
-    <fragment
-        android:id="@+id/nav_DailyJournal"
-        android:name="com.example.brobot.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_dailyJournal"
-        tools:layout="@layout/activity_daily_journal" />
 
 
 </navigation>

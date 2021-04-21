@@ -10,18 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".InterestActivity"
-            android:label="@string/title_activity_interest"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".DailyJournalActivity"
-            android:label="@string/title_activity_daily_journal"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MoodTrackerActivity" />
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
         <activity
             android:name=".chatActivity"
             android:label="@string/title_activity_chat"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
