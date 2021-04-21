@@ -15,6 +15,7 @@ public class DailyJournalFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_daily_journal,container,false);
+        View view= inflater.inflate(R.layout.fragment_daily_journal,container,false);
+        return view;
     }
 }
