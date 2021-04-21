@@ -1,4 +1,4 @@
-package com.example.psychic;
+package com.example.brobot;
 
 public class Message {
     String senderId;

@@ -20,22 +20,22 @@
         />
 
 
-
     <EditText
         android:id="@id/etMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
+        android:elevation="10dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/sayOnMind"
-        android:maxLines="1"
+        android:inputType="textMultiLine"
+        app:layout_constrainedWidth="true"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/fbMessageSend"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constrainedWidth="true"
-
+        android:background="@drawable/rounded_edit_text_background"
         />
 
 
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         app:backgroundTint="@color/colorPrimary"
         app:tint="@color/colorLightFont"
-        app:srcCompat="@drawable/audio"
+        app:srcCompat="@drawable/message_send"
         app:layout_constraintBottom_toBottomOf="@+id/etMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/etMessage"

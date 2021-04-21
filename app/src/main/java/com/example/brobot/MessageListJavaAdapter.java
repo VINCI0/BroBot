@@ -1,4 +1,4 @@
-package com.example.psychic;
+package com.example.brobot;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -33,6 +33,7 @@ public class MessageListJavaAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         if (viewType == MESSAGE_TYPE_IN) {
             return new MessageInViewHolder(LayoutInflater.from(context).inflate(R.layout.message_received, parent, false));
         } else {
