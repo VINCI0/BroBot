@@ -76,6 +76,7 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this, "Password must be at least 6 characters long", Toast.LENGTH_SHORT).show();
                 } else {
                     //registers user on Firebase and on Django server
+
                     register(txt_username, txt_email, txt_password);
 
                 }
@@ -88,8 +89,9 @@ public class SignUpActivity extends AppCompatActivity {
 
         RequestQueue MyRequestQueue = Volley.newRequestQueue(this);
         String url = LoginActivity.serverAddress + "/api/users/register/";
+
         final String userID = fuser;
-        Log.d("UID", userID);
+        Log.d("UID", url);
         JSONObject postparams = new JSONObject();
         try {
             Log.d("UID", userID);
@@ -99,11 +101,11 @@ public class SignUpActivity extends AppCompatActivity {
             //Toast t = new Toast();
             e.printStackTrace();
         }
+
         JsonObjectRequest MyJsonRequest = new JsonObjectRequest(Request.Method.POST, url, postparams, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-
 
                     if (!response.isNull("user_hash")) {
                         Log.d("response", response.get("user_hash").toString());
@@ -119,6 +121,7 @@ public class SignUpActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.d("ERROR",error.toString());
             }
         });
         MyRequestQueue.add(MyJsonRequest);
@@ -152,7 +155,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Intent intent = new Intent(SignUpActivity.this, SignUpActivity.class);
+                                        Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
                                         finish();

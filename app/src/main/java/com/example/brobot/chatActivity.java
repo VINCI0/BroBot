@@ -16,6 +16,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -114,6 +115,19 @@ public class chatActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_Settings:
                 Intent intent=new Intent(this,SettingsActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.themeChanger:
+                if (AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_NO){
+//                       editor.putBoolean("DarkMode",true);
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    getDelegate().applyDayNight();
+                }
+                else{
+//                    editor.putBoolean("DarkMode",false);
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    getDelegate().applyDayNight();
+
+                }
                 break;
         }
 
