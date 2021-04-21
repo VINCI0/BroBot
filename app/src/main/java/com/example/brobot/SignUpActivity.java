@@ -50,7 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         signIn = findViewById(R.id.signuptvSignIn);
 
-        //  username = findViewById(R.id);
+        username = findViewById(R.id.signupetUserName);
         password = findViewById(R.id.signupetPassword);
         email = findViewById(R.id.signupetEmail);
         btn_register = findViewById(R.id.signupbtnSignUp);
