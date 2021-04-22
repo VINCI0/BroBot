@@ -3,6 +3,10 @@
     package="com.example.brobot">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -23,7 +27,7 @@
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.TTS_SERVICE" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

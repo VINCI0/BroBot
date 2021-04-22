@@ -1,9 +1,18 @@
 package com.example.brobot;
 
+import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.media.MediaRecorder;
 import android.os.Bundle;
+import android.os.Environment;
+import android.speech.RecognizerIntent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.method.TextKeyListener;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -33,21 +42,35 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
+
+import static android.app.Activity.RESULT_OK;
+import static android.content.Context.ACCESSIBILITY_SERVICE;
 
 public class ChatFragment extends Fragment {
 
     EditText messageContent;
     RecyclerView recyclerView;
     MessageListJavaAdapter adapter;
-    FloatingActionButton send;
+    FloatingActionButton send,record;
     public FirebaseAuth mAuth;
     TextView username;
     FirebaseUser fuser;
-
+    MediaRecorder mediaRecorder;
+    static int recording_id =0;
 
     public static ArrayList<Message> messagesList = new ArrayList<>();
 
+
+    public void btnRecord(View view){
+
+    }
+
+
+
+    @SuppressLint("ClickableViewAccessibility")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,31 +79,44 @@ public class ChatFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
         adapter = new MessageListJavaAdapter(getActivity(), messagesList, "2", "1");
         recyclerView = view.findViewById(R.id.recyclerViewMessages);
-
         mAuth = FirebaseAuth.getInstance();
         fuser = mAuth.getCurrentUser();
         LinearLayoutManager lm = new LinearLayoutManager(getActivity());
         lm.setStackFromEnd(true);
-
         recyclerView.setLayoutManager(lm);
         recyclerView.setAdapter(adapter);
-
-//        adapter.notifyDataSetChanged();
-//        recyclerView.smoothScrollToPosition(adapter.getItemCount());
-
         send = view.findViewById(R.id.fbMessageSend);
         messageContent = view.findViewById(R.id.etMessage);
-
         GetMessageList(fuser.getUid());
+        record = view.findViewById(R.id.fbRecord);
+        messageContent.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Fires right as the text is being changed (even supplies the range of text)
+                if (messageContent.getText().length()>0){
+                    record.setVisibility(View.INVISIBLE);
+                }else{
+                    record.setVisibility(View.VISIBLE);
+                }
+            }
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+                // Fires right before text is changing
+            }
 
-//        adapter.notifyDataSetChanged();
-//        recyclerView.smoothScrollToPosition(adapter.getItemCount());
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Fires right after the text has changed
+             //   tvDisplay.setText(s.toString());
+            }
+        });
+
 
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if (messageContent.getText().length() == 0) {
                     Toast.makeText(getActivity(), "Empty Message!", Toast.LENGTH_SHORT).show();
                 } else {
@@ -95,15 +131,61 @@ public class ChatFragment extends Fragment {
                     Message m = new Message("2", "1", "typing...", timestamp);
                     messagesList.add(m);
                     adapter.notifyDataSetChanged();
-//                    recyclerView.smoothScrollToPosition(adapter.getItemCount());
                     PostMessage(msg, timestamp);
-
                 }
             }
         });
 
-
+        record.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                        RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,
+                        Locale.getDefault());
+                intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
+                        "Speak your message to BroBot in English");
+                try{
+                    startActivityForResult(intent,
+                            1);
+                }catch (ActivityNotFoundException e){
+                    Log.d("AUDIOTRANS",e.getMessage());
+                }
+            }
+        });
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case 1:
+                if (resultCode==RESULT_OK && data != null){
+                    ArrayList<String> result =
+                            data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    String msg = "";
+                    for (int i=0;i<result.size();i++){
+                        msg+=result.get(i);
+                    }
+                    long timestamp = System.currentTimeMillis() / 1000;
+                    if (msg.length()>0) {
+                        messagesList.add(new Message("1", "2", msg, timestamp));
+
+                        adapter.notifyDataSetChanged();
+                        recyclerView.smoothScrollToPosition(adapter.getItemCount());
+                        Message m = new Message("2", "1", "typing...", timestamp);
+                        messagesList.add(m);
+                        adapter.notifyDataSetChanged();
+                        PostMessage(msg, timestamp);
+                    }else{
+                        Toast.makeText(getActivity(),"Emptry Message!",Toast.LENGTH_SHORT);
+                    }
+
+                }
+                break;
+        }
     }
 
     void PostMessage(final String msg, final Long timestamp) {
