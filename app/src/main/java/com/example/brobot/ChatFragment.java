@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.LongDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -45,7 +46,7 @@ public class ChatFragment extends Fragment {
     FirebaseUser fuser;
 
 
-    static ArrayList<Message> messagesList = new ArrayList<>();
+    public static ArrayList<Message> messagesList = new ArrayList<>();
 
     @Nullable
     @Override
@@ -172,11 +173,12 @@ public class ChatFragment extends Fragment {
                         //             Log.d("GETMESSAGES", message.get("msg_text").toString());
                         Long timeStamp = Long.parseLong(message.get("timestamp").toString());
                         Boolean isBot = Boolean.parseBoolean(message.get("is_bot").toString());
+                        Float moodScore = Float.parseFloat(message.get("compound_score").toString());
 
                         if (isBot)
-                            messagesList.add(new Message("2", "1", msgText, timeStamp));
+                            messagesList.add(new Message("2", "1", msgText, timeStamp,moodScore));
                         else
-                            messagesList.add(new Message("1", "2", msgText, timeStamp));
+                            messagesList.add(new Message("1", "2", msgText, timeStamp,moodScore));
 
                         adapter.notifyDataSetChanged();
 //                        recyclerView.smoothScrollToPosition(adapter.getItemCount());

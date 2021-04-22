@@ -59,4 +59,10 @@
     <string name="pickDate">Pick Date</string>
     <string name="viewMoodByDate" >View Mood By Date</string>
     <string name="cancel">Cancel</string>
+    <string name="Interest_Entertainment">Entertainment</string>
+    <string name="EmotionDescription">Emotion Score Ranging From -1 To 1 \n\n
+       \t\t\t\t 1 ---> \tPositive \n
+       \t\t\t\t 0 ---> \tSatisfactory \n
+        \t\t\t\t-1 ---> \tNegative \n
+    </string>
 </resources>

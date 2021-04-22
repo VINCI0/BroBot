@@ -3,6 +3,7 @@ package com.example.brobot;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Random;
 
 public class Message {
     String senderId;
@@ -32,6 +33,15 @@ public class Message {
         this.receiverId = receiverId;
         this.text = text;
         this.timestamp = timestamp;
+        Random rand = new Random();
+        int i1 = rand.nextInt(2-0) + 0;
+        Float r = ((float) Math.random());
+        if (i1==0) {
+            r = ((float) Math.random());
+        }else{
+            r = ((float) Math.random())*-1;
+        }
+        this.compoundScore= Float.valueOf(r);
 
     }
 
@@ -65,7 +75,7 @@ public class Message {
 
     public String getDate(){
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String dateString = formatter.format(new Date(timestamp));
+        String dateString = formatter.format(new Date(timestamp*1000));
        // Date date = new Date(timestamp);
         return dateString;
     }
