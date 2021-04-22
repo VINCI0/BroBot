@@ -1,5 +1,9 @@
 package com.example.brobot;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Objects;
+
 public class Message {
     String senderId;
     String receiverId;
@@ -41,7 +45,30 @@ public class Message {
         return timestamp;
     }
 
+    public String getDate(){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String dateString = formatter.format(new Date(timestamp));
+       // Date date = new Date(timestamp);
+        return dateString;
+    }
+
     public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Message message = (Message) o;
+        return  Objects.equals(senderId, message.senderId) &&
+                Objects.equals(receiverId, message.receiverId) &&
+                Objects.equals(text, message.text) &&
+                Objects.equals(timestamp, message.timestamp);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(senderId, receiverId, text, timestamp);
     }
 }

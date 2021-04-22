@@ -9,8 +9,8 @@
     <string name="email">Email</string>
     <string name="enterEmail">Enter Your Email</string>
 
-    <string name="signInMessage">Hi There ! Always Here For You</string>
-    <string name="signUpMessage">Welcome ! Lets Get To Know Each Other Better</string>
+    <string name="signInMessage">Hi There! Always here for you</string>
+    <string name="signUpMessage">Welcome! Let\'s get to know each other better</string>
 
     <string name="forgotPassword">Forgot Password?</string>
     <string name="haveAccount">Already Have Account?</string>
@@ -27,9 +27,9 @@
 
     <string name="gitCheck">Git Working</string>
     <string name="moodTracker">Mood Tracker</string>
-    <string name="trackByDate">Track By Date:</string>
+    <string name="trackByDate">Track by Date:</string>
     <string name="goBack">Go Back</string>
-    <string name="sayOnMind">Say What\'s on Your Mind </string>
+    <string name="sayOnMind">Say whatever is on your mind </string>
     <string name="menu_Chat">Chat</string>
     <string name="menu_dailyJournal">Daily Journal</string>
     <string name="menu_Interests">Interests</string>

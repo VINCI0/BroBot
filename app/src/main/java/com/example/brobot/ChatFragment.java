@@ -45,21 +45,20 @@ public class ChatFragment extends Fragment {
     FirebaseUser fuser;
 
 
-    ArrayList<Message> messagesList=new ArrayList<>();
+    ArrayList<Message> messagesList = new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-
-        View view= inflater.inflate(R.layout.fragment_chat,container,false);
-        adapter=new MessageListJavaAdapter(getActivity(),messagesList,"2","1");
-        recyclerView= view.findViewById(R.id.recyclerViewMessages);
+        View view = inflater.inflate(R.layout.fragment_chat, container, false);
+        adapter = new MessageListJavaAdapter(getActivity(), messagesList, "2", "1");
+        recyclerView = view.findViewById(R.id.recyclerViewMessages);
 
         mAuth = FirebaseAuth.getInstance();
         fuser = mAuth.getCurrentUser();
-        LinearLayoutManager lm=new LinearLayoutManager(getActivity());
+        LinearLayoutManager lm = new LinearLayoutManager(getActivity());
         lm.setStackFromEnd(true);
 
         recyclerView.setLayoutManager(lm);
@@ -68,8 +67,8 @@ public class ChatFragment extends Fragment {
 //        adapter.notifyDataSetChanged();
 //        recyclerView.smoothScrollToPosition(adapter.getItemCount());
 
-        send=view.findViewById(R.id.fbMessageSend);
-        messageContent=view.findViewById(R.id.etMessage);
+        send = view.findViewById(R.id.fbMessageSend);
+        messageContent = view.findViewById(R.id.etMessage);
 
         GetMessageList(fuser.getUid());
 
@@ -77,15 +76,13 @@ public class ChatFragment extends Fragment {
 //        recyclerView.smoothScrollToPosition(adapter.getItemCount());
 
 
-
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (messageContent.getText().length()==0) {
+                if (messageContent.getText().length() == 0) {
                     Toast.makeText(getActivity(), "Empty Message!", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     String msg = messageContent.getText().toString();
                     long timestamp = System.currentTimeMillis() / 1000;
                     messagesList.add(new Message("1", "2", msg, timestamp));
@@ -94,7 +91,7 @@ public class ChatFragment extends Fragment {
                     }
                     adapter.notifyDataSetChanged();
                     recyclerView.smoothScrollToPosition(adapter.getItemCount());
-                    Message m = new Message("2", "1", "...", timestamp);
+                    Message m = new Message("2", "1", "typing...", timestamp);
                     messagesList.add(m);
                     adapter.notifyDataSetChanged();
 //                    recyclerView.smoothScrollToPosition(adapter.getItemCount());
@@ -130,7 +127,7 @@ public class ChatFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    messagesList.remove(messagesList.size()-1);
+                    messagesList.remove(messagesList.size() - 1);
                     messagesList.add(new
                             Message("2", "1", response.get("msg_text").toString(),
                             Long.parseLong(response.get("timestamp").toString())));
@@ -161,8 +158,8 @@ public class ChatFragment extends Fragment {
     void GetMessageList(final String user) {
 
         RequestQueue MyRequestQueue = Volley.newRequestQueue(getActivity());
-        String url = LoginActivity.serverAddress + "/api/users/message/";
-       // Toast.makeText(getActivity(), url, Toast.LENGTH_SHORT).show();
+        String url = LoginActivity.serverAddress + "/api/users/message/" + user;
+        // Toast.makeText(getActivity(), url, Toast.LENGTH_SHORT).show();
         JsonArrayRequest MyJsonRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -172,16 +169,15 @@ public class ChatFragment extends Fragment {
 
                         JSONObject message = response.getJSONObject(i);
                         String msgText = message.get("msg_text").toString();
-           //             Log.d("GETMESSAGES", message.get("msg_text").toString());
+                        //             Log.d("GETMESSAGES", message.get("msg_text").toString());
                         Long timeStamp = Long.parseLong(message.get("timestamp").toString());
                         Boolean isBot = Boolean.parseBoolean(message.get("is_bot").toString());
-                        String userHash = message.get("user").toString();
-                        if (userHash.contentEquals(user)) {
-                            if (isBot)
-                                messagesList.add(new Message("2", "1", msgText, timeStamp));
-                            else
-                                messagesList.add(new Message("1", "2", msgText, timeStamp));
-                        }
+
+                        if (isBot)
+                            messagesList.add(new Message("2", "1", msgText, timeStamp));
+                        else
+                            messagesList.add(new Message("1", "2", msgText, timeStamp));
+
                         adapter.notifyDataSetChanged();
 //                        recyclerView.smoothScrollToPosition(adapter.getItemCount());
 
@@ -205,7 +201,6 @@ public class ChatFragment extends Fragment {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
     }
-
 
 
 }
