@@ -45,7 +45,7 @@ public class ChatFragment extends Fragment {
     FirebaseUser fuser;
 
 
-    ArrayList<Message> messagesList = new ArrayList<>();
+    static ArrayList<Message> messagesList = new ArrayList<>();
 
     @Nullable
     @Override

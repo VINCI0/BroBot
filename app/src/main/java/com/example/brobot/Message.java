@@ -9,12 +9,30 @@ public class Message {
     String receiverId;
     String text;
     Long timestamp;
+    Float compoundScore;
+
+    public Float getCompoundScore() {
+        return compoundScore;
+    }
+
+    public void setCompoundScore(Float compoundScore) {
+        this.compoundScore = compoundScore;
+    }
+
+    public Message(String senderId, String receiverId, String text, Long timestamp, Float compoundScore) {
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.text = text;
+        this.timestamp = timestamp;
+        this.compoundScore = compoundScore;
+    }
 
     public Message(String senderId, String receiverId, String text, Long timestamp) {
         this.senderId = senderId;
         this.receiverId = receiverId;
         this.text = text;
         this.timestamp = timestamp;
+
     }
 
     public String getSenderId() {
