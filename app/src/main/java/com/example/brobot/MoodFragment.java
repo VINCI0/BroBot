@@ -10,15 +10,20 @@ import android.widget.DatePicker;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
 import java.util.Calendar;
+import java.util.Objects;
 
 public class MoodFragment extends Fragment {
 
     DatePickerDialog picker;
     Button btnPickDate;
+    GraphView graph;
 
     @Nullable
     @Override
@@ -42,7 +47,7 @@ public class MoodFragment extends Fragment {
                 int month = cldr.get(Calendar.MONTH);
                 int year = cldr.get(Calendar.YEAR);
                 // date picker dialog
-                picker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                picker = new DatePickerDialog(Objects.requireNonNull(getActivity()), new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                                 btnPickDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
@@ -51,6 +56,18 @@ public class MoodFragment extends Fragment {
                 picker.show();
             }
         });
+
+
+        graph = view.findViewById(R.id.graph_moodTracker);
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                new DataPoint(0, 1),
+                new DataPoint(1, 5),
+                new DataPoint(2, 3),
+                new DataPoint(3, 2),
+                new DataPoint(4, 6)
+        });
+        graph.addSeries(series);
+
         return view;
     }
 

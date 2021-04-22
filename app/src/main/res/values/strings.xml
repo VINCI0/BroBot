@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bro Bot</string>
+    <string name="app_name">BroBot</string>
     <string name="logo_description">Bro Bot Logo</string>
     <string name="email_hint">Email/Username</string>
     <string name="password_hint">Password</string>

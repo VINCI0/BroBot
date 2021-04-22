@@ -81,8 +81,13 @@
             app:layout_constraintStart_toEndOf="@+id/tvpickerDate"
             app:layout_constraintTop_toTopOf="@+id/tvpickerDate" />
 
-
-
+        <com.jjoe64.graphview.GraphView
+            android:layout_width="match_parent"
+            android:layout_height="200dip"
+            android:id="@+id/graph_moodTracker"
+            app:layout_constraintTop_toBottomOf="@id/btpickerDate"
+            android:layout_marginTop="40dp"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

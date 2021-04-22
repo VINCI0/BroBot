@@ -1,12 +1,17 @@
 package com.example.brobot;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,10 +22,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
+    ConstraintLayout layout;
     SharedPreferences sharedPreferences;
     TextView signup;
     Button btnSignIn;
@@ -32,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        layout= findViewById(R.id.login_Layout);
         final SharedPreferences sharedpreferences = getSharedPreferences("AppPreferences", Context.MODE_PRIVATE);
 
         if (sharedpreferences.getBoolean("DarkMode",false)){
@@ -42,7 +49,10 @@ public class LoginActivity extends AppCompatActivity {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
 
-
+        if (sharedpreferences.getBoolean("Login",false)){
+            Intent intent=new Intent(this,chatActivity.class);
+            startActivity(intent);
+        }
         assignViews();
 
 
@@ -87,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
+
                                         Intent intent = new Intent(LoginActivity.this, chatActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);

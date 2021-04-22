@@ -64,14 +64,17 @@ public class ChatFragment extends Fragment {
 
         recyclerView.setLayoutManager(lm);
         recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-        recyclerView.smoothScrollToPosition(adapter.getItemCount());
+
+//        adapter.notifyDataSetChanged();
+//        recyclerView.smoothScrollToPosition(adapter.getItemCount());
 
         send=view.findViewById(R.id.fbMessageSend);
         messageContent=view.findViewById(R.id.etMessage);
+
         GetMessageList();
-        adapter.notifyDataSetChanged();
-        recyclerView.smoothScrollToPosition(adapter.getItemCount());
+
+//        adapter.notifyDataSetChanged();
+//        recyclerView.smoothScrollToPosition(adapter.getItemCount());
 
 
 
@@ -94,7 +97,7 @@ public class ChatFragment extends Fragment {
                     Message m = new Message("2", "1", "...", timestamp);
                     messagesList.add(m);
                     adapter.notifyDataSetChanged();
-                    recyclerView.smoothScrollToPosition(adapter.getItemCount());
+//                    recyclerView.smoothScrollToPosition(adapter.getItemCount());
                     PostMessage(msg, timestamp);
 
                 }
@@ -177,10 +180,15 @@ public class ChatFragment extends Fragment {
                         else
                             messagesList.add(new Message("1", "2", msgText, timeStamp));
 
+                        adapter.notifyDataSetChanged();
+//                        recyclerView.smoothScrollToPosition(adapter.getItemCount());
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
+
+
             }
         }, new Response.ErrorListener() {
             @Override
