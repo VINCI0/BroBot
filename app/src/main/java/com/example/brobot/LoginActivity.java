@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     ConstraintLayout layout;
@@ -33,8 +34,22 @@ public class LoginActivity extends AppCompatActivity {
     Button btnSignIn;
     EditText email, password;
     FirebaseAuth auth;
+    FirebaseUser firebaseUser;
     public static final String serverAddress = "http://39.32.126.18:9001";
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        //if the user is already logged in
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (firebaseUser != null) {
+            Intent intent = new Intent(LoginActivity.this, chatActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,13 +90,6 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.loginetPassword);
 
 
-       /* btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(LoginActivity.this,chatActivity.class);
-                startActivity(intent);
-            }
-        });*/
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override

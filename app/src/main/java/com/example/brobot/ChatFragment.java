@@ -71,7 +71,7 @@ public class ChatFragment extends Fragment {
         send=view.findViewById(R.id.fbMessageSend);
         messageContent=view.findViewById(R.id.etMessage);
 
-        GetMessageList();
+        GetMessageList(fuser.getUid());
 
 //        adapter.notifyDataSetChanged();
 //        recyclerView.smoothScrollToPosition(adapter.getItemCount());
@@ -152,13 +152,13 @@ public class ChatFragment extends Fragment {
         MyRequestQueue.add(MyJsonRequest);
         //set timeout to 15 seconds
         MyJsonRequest.setRetryPolicy(new DefaultRetryPolicy(
-                15000,
+                30000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
     }
 
 
-    void GetMessageList() {
+    void GetMessageList(final String user) {
 
         RequestQueue MyRequestQueue = Volley.newRequestQueue(getActivity());
         String url = LoginActivity.serverAddress + "/api/users/message/";
@@ -175,11 +175,13 @@ public class ChatFragment extends Fragment {
            //             Log.d("GETMESSAGES", message.get("msg_text").toString());
                         Long timeStamp = Long.parseLong(message.get("timestamp").toString());
                         Boolean isBot = Boolean.parseBoolean(message.get("is_bot").toString());
-                        if (isBot)
-                            messagesList.add(new Message("2", "1", msgText, timeStamp));
-                        else
-                            messagesList.add(new Message("1", "2", msgText, timeStamp));
-
+                        String userHash = message.get("user").toString();
+                        if (userHash.contentEquals(user)) {
+                            if (isBot)
+                                messagesList.add(new Message("2", "1", msgText, timeStamp));
+                            else
+                                messagesList.add(new Message("1", "2", msgText, timeStamp));
+                        }
                         adapter.notifyDataSetChanged();
 //                        recyclerView.smoothScrollToPosition(adapter.getItemCount());
 
@@ -198,7 +200,7 @@ public class ChatFragment extends Fragment {
         MyRequestQueue.add(MyJsonRequest);
         //set timeout to 15 seconds
         MyJsonRequest.setRetryPolicy(new DefaultRetryPolicy(
-                15000,
+                30000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
