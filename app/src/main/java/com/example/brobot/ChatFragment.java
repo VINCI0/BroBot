@@ -35,6 +35,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -55,18 +56,15 @@ public class ChatFragment extends Fragment {
     RecyclerView recyclerView;
     MessageListJavaAdapter adapter;
     FloatingActionButton send,record;
-    public FirebaseAuth mAuth;
-    TextView username;
-    FirebaseUser fuser;
-    MediaRecorder mediaRecorder;
+
+
+    TextView user_name;
+    NavigationView navigationView;
     static int recording_id =0;
 
     public static ArrayList<Message> messagesList = new ArrayList<>();
 
 
-    public void btnRecord(View view){
-
-    }
 
 
 
@@ -79,16 +77,24 @@ public class ChatFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
         adapter = new MessageListJavaAdapter(getActivity(), messagesList, "2", "1");
         recyclerView = view.findViewById(R.id.recyclerViewMessages);
-        mAuth = FirebaseAuth.getInstance();
-        fuser = mAuth.getCurrentUser();
+
         LinearLayoutManager lm = new LinearLayoutManager(getActivity());
         lm.setStackFromEnd(true);
         recyclerView.setLayoutManager(lm);
         recyclerView.setAdapter(adapter);
         send = view.findViewById(R.id.fbMessageSend);
         messageContent = view.findViewById(R.id.etMessage);
-        GetMessageList(fuser.getUid());
+     //   chatActivity.fuser = chatActivity.mAuth.getCurrentUser();
+        GetMessageList(chatActivity.fuser.getUid());
+        Log.d("UIDD",chatActivity.fuser.getUid());
         record = view.findViewById(R.id.fbRecord);
+
+        //navigationView= (NavigationView) navigationView.inflateHeaderView(R.layout.nav_header);
+      /*  navigationView= (NavigationView) view.findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        user_name = (TextView) headerView.findViewById(R.id.navHeaderUserName);
+        user_name.setText(fuser.getDisplayName());*/
+
         messageContent.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -111,7 +117,8 @@ public class ChatFragment extends Fragment {
              //   tvDisplay.setText(s.toString());
             }
         });
-
+       // user_name = view.findViewById(R.id.navHeaderUserName);
+       // user_name.setText(fuser.getDisplayName());
 
 
         send.setOnClickListener(new View.OnClickListener() {
@@ -192,8 +199,8 @@ public class ChatFragment extends Fragment {
 
         RequestQueue MyRequestQueue = Volley.newRequestQueue(getActivity());
         String url = LoginActivity.serverAddress + "/api/users/message/";
-        final String userID = fuser.getUid();
-        Log.d("UID", userID);
+        final String userID = chatActivity.fuser.getUid();
+        Log.d("USER NAME ", chatActivity.fuser.getEmail());
         JSONObject postparams = new JSONObject();
         try {
 
@@ -243,6 +250,7 @@ public class ChatFragment extends Fragment {
         RequestQueue MyRequestQueue = Volley.newRequestQueue(getActivity());
         String url = LoginActivity.serverAddress + "/api/users/message/" + user;
         // Toast.makeText(getActivity(), url, Toast.LENGTH_SHORT).show();
+        Log.d("UIDD",user);
         JsonArrayRequest MyJsonRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -256,12 +264,14 @@ public class ChatFragment extends Fragment {
                         Long timeStamp = Long.parseLong(message.get("timestamp").toString());
                         Boolean isBot = Boolean.parseBoolean(message.get("is_bot").toString());
                         Float moodScore = Float.parseFloat(message.get("compound_score").toString());
-
-                        if (isBot)
-                            messagesList.add(new Message("2", "1", msgText, timeStamp,moodScore));
-                        else
-                            messagesList.add(new Message("1", "2", msgText, timeStamp,moodScore));
-
+                        String u = message.get("user").toString();
+                        Log.d("UIDD",u+"  "+user);
+                       // if (u.contentEquals(user)) {
+                            if (isBot)
+                                messagesList.add(new Message("2", "1", msgText, timeStamp, moodScore));
+                            else
+                                messagesList.add(new Message("1", "2", msgText, timeStamp, moodScore));
+                        //}
                         adapter.notifyDataSetChanged();
 //                        recyclerView.smoothScrollToPosition(adapter.getItemCount());
 

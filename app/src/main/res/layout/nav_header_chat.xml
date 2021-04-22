@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_header"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
     android:background="@drawable/side_nav_bar"
@@ -29,12 +30,12 @@
 
         <ImageView
             android:id="@+id/navHeaderUserImage"
-            android:padding="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="104dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/nav_header_desc"
+            android:padding="10dp"
             android:src="@drawable/logo"
 
             />
@@ -48,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/navHeader_cv"
         android:layout_marginStart="10dp"
+        android:text="@string/userName"
         android:hint="@string/userName"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -55,15 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/navHeader_cv" />
 
 
-    <TextView
-        android:id="@+id/navHeaderEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/navHeaderUserName"
-        android:layout_marginStart="10dp"
-        android:hint="@string/email"
-        app:layout_constraintStart_toStartOf="@+id/navHeader_cv"
-        app:layout_constraintTop_toBottomOf="@+id/navHeaderUserName" />
+
 
     <Button
         android:id="@+id/themeChanger"

@@ -3,10 +3,12 @@ package com.example.brobot;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -35,7 +38,9 @@ public class chatActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
     private NavigationView navigationView;
     private FloatingActionButton fb;
-
+    private TextView user_name;
+    static FirebaseAuth mAuth;
+    static FirebaseUser fuser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -45,9 +50,16 @@ public class chatActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.chat_Toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-
+        mAuth = FirebaseAuth.getInstance();
+        fuser = mAuth.getCurrentUser();
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+        user_name = (TextView) headerView.findViewById(R.id.navHeaderUserName);
+      //  Toast.makeText(this,,Toast.LENGTH_SHORT);
+        Log.d("USER_NAME",fuser.getDisplayName()+" hy");
+        user_name.setText(fuser.getEmail());
+
 
         logout = findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
