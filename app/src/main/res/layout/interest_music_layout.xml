@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvMusic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Music"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+
+        />
+
+    <RelativeLayout
+        android:id="@+id/rlMusic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@color/colorAccent"
+        android:backgroundTintMode="multiply"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMusic"
+        android:padding="10dp">
+
+
+        <EditText
+
+            android:id="@+id/in_pop"
+            android:text="Pop"
+
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+            />
+
+        <EditText
+
+            android:id="@+id/in_countryMusic"
+            android:layout_toRightOf="@id/in_pop"
+            android:text="Country Music"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+
+            />
+
+        <EditText
+            android:text="Metal"
+            android:id="@+id/in_metalMusic"
+            android:layout_toRightOf="@+id/in_countryMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+            />
+        <EditText
+            android:text="Rap"
+            android:id="@+id/in_rapMusic"
+            android:layout_toRightOf="@+id/in_metalMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+            />
+
+
+        <EditText
+            android:text="Dance/Electronic"
+            android:layout_below="@id/in_pop"
+            android:id="@+id/in_electronic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+            />
+
+
+        <EditText
+
+            android:id="@+id/in_classical"
+            android:text="Classical"
+            android:layout_toEndOf="@id/in_electronic"
+            android:layout_below="@id/in_pop"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+
+            />
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

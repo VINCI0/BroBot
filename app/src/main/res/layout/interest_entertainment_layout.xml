@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvEntertainment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Interest_Entertainment"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+
+        />
+
+    <RelativeLayout
+        android:id="@+id/rlEntertainment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@color/colorAccent"
+        android:backgroundTintMode="multiply"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvEntertainment"
+        android:padding="10dp">
+
+
+        <EditText
+
+            android:id="@+id/in_book"
+            android:text="Books"
+
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+            />
+
+        <EditText
+
+            android:id="@+id/in_Style"
+            android:layout_toRightOf="@id/in_book"
+            android:text="Style"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+            />
+
+        <EditText
+            android:text="Pop Culture"
+            android:id="@+id/in_popCulture"
+            android:layout_toRightOf="@+id/in_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+            />
+
+        <EditText
+            android:text="Industry News"
+            android:layout_below="@id/in_book"
+            android:id="@+id/in_industryNews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+
+            />
+
+        <EditText
+
+            android:id="@+id/in_gaming"
+            android:layout_toRightOf="@+id/in_popCulture"
+            android:text="Gaming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+
+            />
+
+
+        <EditText
+
+            android:id="@+id/in_movies"
+            android:text="Movies"
+            android:layout_toEndOf="@id/in_industryNews"
+            android:layout_below="@id/in_book"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+
+            />
+
+        <EditText
+
+            android:id="@+id/in_arts"
+            android:text="Arts"
+            android:layout_toEndOf="@id/in_movies"
+            android:layout_below="@id/in_book"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+            />
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

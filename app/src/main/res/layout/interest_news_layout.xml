@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvNews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="News"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rlNews"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@color/colorAccent"
+        android:backgroundTintMode="multiply"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNews"
+        android:padding="10dp">
+
+
+        <EditText
+
+            android:id="@+id/in_weather"
+            android:text="Weather"
+
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+
+            />
+
+        <EditText
+
+            android:id="@+id/in_History"
+            android:layout_toRightOf="@id/in_weather"
+            android:text="History"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+
+            />
+
+        <EditText
+            android:text="Health"
+            android:id="@+id/in_health"
+            android:layout_toRightOf="@+id/in_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+
+            />
+
+        <EditText
+            android:text="General News"
+            android:layout_below="@id/in_health"
+            android:id="@+id/in_generalNews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+            />
+
+        <EditText
+
+            android:id="@+id/in_polictics"
+            android:layout_toRightOf="@+id/in_generalNews"
+            android:layout_below="@id/in_weather"
+            android:text="Politics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+            />
+
+
+        <EditText
+
+            android:id="@+id/in_bussiness"
+            android:text="Business"
+            android:layout_toRightOf="@id/in_health"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+            />
+
+        <EditText
+
+            android:id="@+id/in_science"
+            android:text="Science"
+            android:layout_toEndOf="@id/in_polictics"
+            android:layout_below="@id/in_weather"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+
+            />
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

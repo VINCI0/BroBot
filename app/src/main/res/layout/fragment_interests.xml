@@ -1,18 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_Interests"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+<!--Header-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/interestHeader"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:context=".MoodTrackerActivity"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/tvInterest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_Interests"
+                android:textSize="18sp"
+                android:textStyle="bold"
+
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="10dp"
+
+                />
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--Entertainment-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/entertainment_constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/interestHeader"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <include layout="@layout/interest_entertainment_layout"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--Sports-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/sports_constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/entertainment_constraintLayout"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <include layout="@layout/interest_sports_layout"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--News-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/news_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/sports_constraintLayout"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <include layout="@layout/interest_news_layout"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--    Music -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/music_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/news_constraint_layout"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <include layout="@layout/interest_music_layout"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--    Tech -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tech_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/music_constraint_layout"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <include layout="@layout/interest_tech_layout"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>
+
+

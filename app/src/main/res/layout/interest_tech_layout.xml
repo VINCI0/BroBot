@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvTechnology"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Technology"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rlSports"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@color/colorAccent"
+        android:backgroundTintMode="multiply"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTechnology"
+        android:padding="10dp">
+
+
+        <EditText
+
+            android:id="@+id/in_ai"
+            android:text="Artificial Intelligence"
+
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+
+            />
+
+        <EditText
+
+            android:id="@+id/in_deepLearning"
+            android:layout_toRightOf="@id/in_ai"
+            android:text="Deep Learning"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+
+            />
+
+        <EditText
+            android:text="Cloud Computing"
+            android:id="@+id/in_cloudComputing"
+            android:layout_toRightOf="@id/in_iotTech"
+            android:layout_below="@+id/in_deepLearning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+            />
+
+        <EditText
+            android:text="IOT"
+            android:layout_below="@id/in_deepLearning"
+            android:id="@+id/in_iotTech"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+            />
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

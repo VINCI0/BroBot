@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvSports"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sports"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rlSports"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@color/colorAccent"
+        android:backgroundTintMode="multiply"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSports"
+        android:padding="10dp">
+
+
+        <EditText
+
+            android:id="@+id/in_soccer"
+            android:text="Soccer"
+
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+
+            />
+
+        <EditText
+
+            android:id="@+id/in_NBA"
+            android:layout_toRightOf="@id/in_soccer"
+            android:text="NBA"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+
+            />
+
+        <EditText
+            android:text="Cricket"
+            android:id="@+id/in_Cricket"
+            android:layout_toRightOf="@+id/in_NBA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+            android:enabled="false"
+
+            />
+
+        <EditText
+            android:text="WWE"
+            android:layout_below="@id/in_Cricket"
+            android:id="@+id/in_WWE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+            />
+
+        <EditText
+
+            android:id="@+id/in_hockey"
+            android:layout_toRightOf="@+id/in_Cricket"
+            android:text="Hockey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+
+            />
+
+
+        <EditText
+
+            android:id="@+id/in_tennis"
+            android:text="Tennis"
+            android:layout_toEndOf="@id/in_WWE"
+            android:layout_below="@id/in_NBA"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_edit_text_selected"
+            android:textAllCaps="false"
+            android:textColor="@color/colorLightFont"
+
+            android:enabled="false"
+
+            />
+
+        <EditText
+
+            android:id="@+id/in_UFC"
+            android:text="UFC"
+            android:layout_below="@id/in_hockey"
+            android:layout_toRightOf="@id/in_tennis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+
+            android:background="@drawable/rounded_edit_text_background"
+            android:textColor="@color/colorPrimary"
+
+            android:textAllCaps="false"
+            android:enabled="false"
+
+            />
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
