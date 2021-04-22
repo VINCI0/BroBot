@@ -91,7 +91,12 @@ public class ChatFragment extends Fragment {
                     }
                     adapter.notifyDataSetChanged();
                     recyclerView.smoothScrollToPosition(adapter.getItemCount());
+                    Message m = new Message("2", "1", "...", timestamp);
+                    messagesList.add(m);
+                    adapter.notifyDataSetChanged();
+                    recyclerView.smoothScrollToPosition(adapter.getItemCount());
                     PostMessage(msg, timestamp);
+
                 }
             }
         });
@@ -122,8 +127,7 @@ public class ChatFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-
-                    Log.d("RESSS", response.get("msg_text").toString() + "RES");
+                    messagesList.remove(messagesList.size()-1);
                     messagesList.add(new
                             Message("2", "1", response.get("msg_text").toString(),
                             Long.parseLong(response.get("timestamp").toString())));
@@ -155,7 +159,7 @@ public class ChatFragment extends Fragment {
 
         RequestQueue MyRequestQueue = Volley.newRequestQueue(getActivity());
         String url = LoginActivity.serverAddress + "/api/users/message/";
-        Toast.makeText(getActivity(), url, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getActivity(), url, Toast.LENGTH_SHORT).show();
         JsonArrayRequest MyJsonRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -165,7 +169,7 @@ public class ChatFragment extends Fragment {
 
                         JSONObject message = response.getJSONObject(i);
                         String msgText = message.get("msg_text").toString();
-                        Log.d("GETMESSAGES", message.get("msg_text").toString());
+           //             Log.d("GETMESSAGES", message.get("msg_text").toString());
                         Long timeStamp = Long.parseLong(message.get("timestamp").toString());
                         Boolean isBot = Boolean.parseBoolean(message.get("is_bot").toString());
                         if (isBot)

@@ -7,12 +7,14 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -29,6 +31,7 @@ import androidx.appcompat.widget.Toolbar;
 public class chatActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private TextView message;
+    private ImageView logout;
     private DrawerLayout drawer;
     private NavigationView navigationView;
     private FloatingActionButton fb;
@@ -46,6 +49,16 @@ public class chatActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        logout = findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(chatActivity.this, LoginActivity.class));
+                finish();
+            }
+        });
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar
                 , R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -58,30 +71,6 @@ public class chatActivity extends AppCompatActivity implements NavigationView.On
         }
 
     }
-
-    //        FloatingActionButton fab = findViewById(R.id.fbMessageSend);
-//        fab.setImageResource(R.drawable.audio);
-//        message=findViewById(R.id.etMessage);
-//        message.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (message.getText().length()>0){
-//                    FloatingActionButton fb=findViewById(R.id.fbMessageSend);
-//                    fb.setImageResource(R.drawable.message_send);
-//                }
-//                else{
-//                    fb.setImageResource(R.drawable.audio);
-//                }
-//            }
-//        });
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Snackbar.make(view, "Record Audio", Snackbar.LENGTH_LONG)
-//                        .setAction("No Action", null).show();
-//            }
-//        });
 
     @Override
     public void onBackPressed() {
@@ -149,30 +138,4 @@ public class chatActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-    //        NavigationView navigationView = findViewById(R.id.nav_view);
-//        // Passing each menu ID as a set of Ids because each
-//        // menu should be considered as top level destinations.
-//        mAppBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.nav_Chat, R.id.nav_MoodTracker, R.id.nav_DailyJournal)
-//                .setDrawerLayout(drawer)
-//                .build();
-//
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-//        NavigationUI.setupWithNavController(navigationView, navController);
-//    }
-//
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.logout_menu, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-//                || super.onSupportNavigateUp();
-//    }
 

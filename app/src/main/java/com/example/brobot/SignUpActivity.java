@@ -74,6 +74,7 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
                 } else if (txt_password.length() < 6) {
                     Toast.makeText(SignUpActivity.this, "Password must be at least 6 characters long", Toast.LENGTH_SHORT).show();
+
                 } else {
                     //registers user on Firebase and on Django server
 
@@ -110,6 +111,9 @@ public class SignUpActivity extends AppCompatActivity {
                     if (!response.isNull("user_hash")) {
                         Log.d("response", response.get("user_hash").toString());
                         Toast.makeText(SignUpActivity.this, "User Registered on Server", Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(SignUpActivity.this,chatActivity.class);
+                        startActivity(intent);
+
                     } else
                         Toast.makeText(SignUpActivity.this, "User couldn't be registered on server", Toast.LENGTH_SHORT).show();
 

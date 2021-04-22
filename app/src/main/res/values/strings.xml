@@ -56,4 +56,6 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="enterName">Enter Your Name</string>
+    <string name="pickDate">Pick Date</string>
+    <string name="viewMoodByDate" >View Mood By Date</string>
 </resources>
