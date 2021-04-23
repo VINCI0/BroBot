@@ -30,7 +30,7 @@
 
         <EditText
 
-            android:id="@+id/in_book"
+            android:id="@+id/interest_1"
             android:text="Books"
 
 
@@ -47,8 +47,8 @@
 
         <EditText
 
-            android:id="@+id/in_Style"
-            android:layout_toRightOf="@id/in_book"
+            android:id="@+id/interest_2"
+            android:layout_toRightOf="@id/interest_1"
             android:text="Style"
 
             android:layout_width="wrap_content"
@@ -65,8 +65,8 @@
 
         <EditText
             android:text="Pop Culture"
-            android:id="@+id/in_popCulture"
-            android:layout_toRightOf="@+id/in_Style"
+            android:id="@+id/interest_3"
+            android:layout_toRightOf="@+id/interest_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -81,8 +81,8 @@
 
         <EditText
             android:text="Industry News"
-            android:layout_below="@id/in_book"
-            android:id="@+id/in_industryNews"
+            android:layout_below="@id/interest_1"
+            android:id="@+id/interest_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -97,8 +97,8 @@
 
         <EditText
 
-            android:id="@+id/in_gaming"
-            android:layout_toRightOf="@+id/in_popCulture"
+            android:id="@+id/interest_5"
+            android:layout_toRightOf="@+id/interest_3"
             android:text="Gaming"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -115,10 +115,10 @@
 
         <EditText
 
-            android:id="@+id/in_movies"
+            android:id="@+id/interest_6"
             android:text="Movies"
-            android:layout_toEndOf="@id/in_industryNews"
-            android:layout_below="@id/in_book"
+            android:layout_toEndOf="@id/interest_4"
+            android:layout_below="@id/interest_1"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -134,10 +134,10 @@
 
         <EditText
 
-            android:id="@+id/in_arts"
+            android:id="@+id/interest_7"
             android:text="Arts"
-            android:layout_toEndOf="@id/in_movies"
-            android:layout_below="@id/in_book"
+            android:layout_toEndOf="@id/interest_6"
+            android:layout_below="@id/interest_1"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

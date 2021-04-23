@@ -29,7 +29,7 @@
 
         <EditText
 
-            android:id="@+id/in_weather"
+            android:id="@+id/interest_15"
             android:text="Weather"
 
 
@@ -45,28 +45,11 @@
 
             />
 
-        <EditText
-
-            android:id="@+id/in_History"
-            android:layout_toRightOf="@id/in_weather"
-            android:text="History"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
-            android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
-
-            />
 
         <EditText
             android:text="Health"
-            android:id="@+id/in_health"
-            android:layout_toRightOf="@+id/in_weather"
+            android:id="@+id/interest_16"
+            android:layout_toRightOf="@+id/interest_15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -81,8 +64,8 @@
 
         <EditText
             android:text="General News"
-            android:layout_below="@id/in_health"
-            android:id="@+id/in_generalNews"
+            android:layout_below="@id/interest_16"
+            android:id="@+id/interest_17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -97,9 +80,9 @@
 
         <EditText
 
-            android:id="@+id/in_polictics"
-            android:layout_toRightOf="@+id/in_generalNews"
-            android:layout_below="@id/in_weather"
+            android:id="@+id/interest_18"
+            android:layout_toRightOf="@+id/interest_17"
+            android:layout_below="@id/interest_15"
             android:text="Politics"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -116,9 +99,9 @@
 
         <EditText
 
-            android:id="@+id/in_bussiness"
+            android:id="@+id/interest_19"
             android:text="Business"
-            android:layout_toRightOf="@id/in_health"
+            android:layout_toRightOf="@id/interest_16"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -134,10 +117,10 @@
 
         <EditText
 
-            android:id="@+id/in_science"
+            android:id="@+id/interest_20"
             android:text="Science"
-            android:layout_toEndOf="@id/in_polictics"
-            android:layout_below="@id/in_weather"
+            android:layout_toEndOf="@id/interest_18"
+            android:layout_below="@id/interest_15"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

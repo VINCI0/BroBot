@@ -29,7 +29,7 @@
 
         <EditText
 
-            android:id="@+id/in_ai"
+            android:id="@+id/interest_27"
             android:text="Artificial Intelligence"
 
 
@@ -47,8 +47,8 @@
 
         <EditText
 
-            android:id="@+id/in_deepLearning"
-            android:layout_toRightOf="@id/in_ai"
+            android:id="@+id/interest_28"
+            android:layout_toRightOf="@id/interest_27"
             android:text="Deep Learning"
 
             android:layout_width="wrap_content"
@@ -65,9 +65,9 @@
 
         <EditText
             android:text="Cloud Computing"
-            android:id="@+id/in_cloudComputing"
-            android:layout_toRightOf="@id/in_iotTech"
-            android:layout_below="@+id/in_deepLearning"
+            android:id="@+id/interest_29"
+            android:layout_toRightOf="@id/interest_30"
+            android:layout_below="@+id/interest_28"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -82,8 +82,8 @@
 
         <EditText
             android:text="IOT"
-            android:layout_below="@id/in_deepLearning"
-            android:id="@+id/in_iotTech"
+            android:layout_below="@id/interest_28"
+            android:id="@+id/interest_30"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"

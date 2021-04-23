@@ -30,7 +30,7 @@
 
         <EditText
 
-            android:id="@+id/in_pop"
+            android:id="@+id/interest_21"
             android:text="Pop"
 
 
@@ -48,8 +48,8 @@
 
         <EditText
 
-            android:id="@+id/in_countryMusic"
-            android:layout_toRightOf="@id/in_pop"
+            android:id="@+id/interest_22"
+            android:layout_toRightOf="@id/interest_21"
             android:text="Country Music"
 
             android:layout_width="wrap_content"
@@ -66,8 +66,8 @@
 
         <EditText
             android:text="Metal"
-            android:id="@+id/in_metalMusic"
-            android:layout_toRightOf="@+id/in_countryMusic"
+            android:id="@+id/interest_23"
+            android:layout_toRightOf="@+id/interest_22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -81,8 +81,8 @@
             />
         <EditText
             android:text="Rap"
-            android:id="@+id/in_rapMusic"
-            android:layout_toRightOf="@+id/in_metalMusic"
+            android:id="@+id/interest_24"
+            android:layout_toRightOf="@+id/interest_23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -98,8 +98,8 @@
 
         <EditText
             android:text="Dance/Electronic"
-            android:layout_below="@id/in_pop"
-            android:id="@+id/in_electronic"
+            android:layout_below="@id/interest_21"
+            android:id="@+id/interest_25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -115,10 +115,10 @@
 
         <EditText
 
-            android:id="@+id/in_classical"
+            android:id="@+id/interest_26"
             android:text="Classical"
-            android:layout_toEndOf="@id/in_electronic"
-            android:layout_below="@id/in_pop"
+            android:layout_toEndOf="@id/interest_25"
+            android:layout_below="@id/interest_21"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

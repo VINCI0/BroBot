@@ -29,7 +29,7 @@
 
         <EditText
 
-            android:id="@+id/in_soccer"
+            android:id="@+id/interest_8"
             android:text="Soccer"
 
 
@@ -47,8 +47,8 @@
 
         <EditText
 
-            android:id="@+id/in_NBA"
-            android:layout_toRightOf="@id/in_soccer"
+            android:id="@+id/interest_9"
+            android:layout_toRightOf="@id/interest_8"
             android:text="NBA"
 
             android:layout_width="wrap_content"
@@ -66,8 +66,8 @@
 
         <EditText
             android:text="Cricket"
-            android:id="@+id/in_Cricket"
-            android:layout_toRightOf="@+id/in_NBA"
+            android:id="@+id/interest_10"
+            android:layout_toRightOf="@+id/interest_9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -82,8 +82,8 @@
 
         <EditText
             android:text="WWE"
-            android:layout_below="@id/in_Cricket"
-            android:id="@+id/in_WWE"
+            android:layout_below="@id/interest_10"
+            android:id="@+id/interest_11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -99,8 +99,8 @@
 
         <EditText
 
-            android:id="@+id/in_hockey"
-            android:layout_toRightOf="@+id/in_Cricket"
+            android:id="@+id/interest_12"
+            android:layout_toRightOf="@+id/interest_10"
             android:text="Hockey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -117,10 +117,10 @@
 
         <EditText
 
-            android:id="@+id/in_tennis"
+            android:id="@+id/interest_13"
             android:text="Tennis"
-            android:layout_toEndOf="@id/in_WWE"
-            android:layout_below="@id/in_NBA"
+            android:layout_toEndOf="@id/interest_11"
+            android:layout_below="@id/interest_9"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -137,10 +137,10 @@
 
         <EditText
 
-            android:id="@+id/in_UFC"
+            android:id="@+id/interest_14"
             android:text="UFC"
-            android:layout_below="@id/in_hockey"
-            android:layout_toRightOf="@id/in_tennis"
+            android:layout_below="@id/interest_12"
+            android:layout_toRightOf="@id/interest_13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
