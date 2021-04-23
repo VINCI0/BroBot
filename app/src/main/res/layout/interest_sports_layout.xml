@@ -27,7 +27,7 @@
         android:padding="10dp">
 
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_8"
             android:text="Soccer"
@@ -38,14 +38,14 @@
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
+            android:tag="1"
+
+
 
             />
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_9"
             android:layout_toRightOf="@id/interest_8"
@@ -57,14 +57,13 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_edit_text_background"
+            android:backgroundTint="@color/colorLightFont"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
 
 
             />
 
-        <EditText
+        <Button
             android:text="Cricket"
             android:id="@+id/interest_10"
             android:layout_toRightOf="@+id/interest_9"
@@ -73,14 +72,12 @@
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
+            android:tag="1"
 
             />
 
-        <EditText
+        <Button
             android:text="WWE"
             android:layout_below="@id/interest_10"
             android:id="@+id/interest_11"
@@ -91,13 +88,12 @@
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
 
-            android:background="@drawable/rounded_edit_text_background"
+            android:backgroundTint="@color/colorLightFont"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
 
             />
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_12"
             android:layout_toRightOf="@+id/interest_10"
@@ -108,14 +104,12 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_edit_text_background"
-            android:textColor="@color/colorPrimary"
-            android:enabled="false"
+            android:tag="1"
 
             />
 
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_13"
             android:text="Tennis"
@@ -127,15 +121,13 @@
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
+            android:tag="1"
 
-            android:enabled="false"
 
             />
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_14"
             android:text="UFC"
@@ -147,11 +139,10 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
 
-            android:background="@drawable/rounded_edit_text_background"
+            android:backgroundTint="@color/colorLightFont"
             android:textColor="@color/colorPrimary"
 
             android:textAllCaps="false"
-            android:enabled="false"
 
             />
 

@@ -28,7 +28,7 @@
         android:padding="10dp">
 
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_21"
             android:text="Pop"
@@ -40,31 +40,29 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_edit_text_background"
+            android:backgroundTint="@color/colorLightFont"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
 
             />
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_22"
             android:layout_toRightOf="@id/interest_21"
             android:text="Country Music"
+            android:tag="1"
+
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
 
             />
 
-        <EditText
+        <Button
             android:text="Metal"
             android:id="@+id/interest_23"
             android:layout_toRightOf="@+id/interest_22"
@@ -74,12 +72,11 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_edit_text_background"
+            android:backgroundTint="@color/colorLightFont"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
 
             />
-        <EditText
+        <Button
             android:text="Rap"
             android:id="@+id/interest_24"
             android:layout_toRightOf="@+id/interest_23"
@@ -89,14 +86,13 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_edit_text_background"
+            android:backgroundTint="@color/colorLightFont"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
 
             />
 
 
-        <EditText
+        <Button
             android:text="Dance/Electronic"
             android:layout_below="@id/interest_21"
             android:id="@+id/interest_25"
@@ -106,14 +102,13 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_edit_text_background"
+            android:backgroundTint="@color/colorLightFont"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
 
             />
 
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_26"
             android:text="Classical"
@@ -125,10 +120,8 @@
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
+            android:tag="1"
 
             />
 

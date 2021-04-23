@@ -27,25 +27,23 @@
         android:padding="10dp">
 
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_27"
-            android:text="Artificial Intelligence"
-
-
             android:layout_width="wrap_content"
+
+
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
+            android:padding="10dp"
+            android:text="Artificial Intelligence"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
+            android:tag="1"
 
             />
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_28"
             android:layout_toRightOf="@id/interest_27"
@@ -56,14 +54,11 @@
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
-
+            android:tag="1"
             />
 
-        <EditText
+        <Button
             android:text="Cloud Computing"
             android:id="@+id/interest_29"
             android:layout_toRightOf="@id/interest_30"
@@ -74,13 +69,12 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_edit_text_background"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
+            android:backgroundTint="@color/colorLightFont"
 
             />
 
-        <EditText
+        <Button
             android:text="IOT"
             android:layout_below="@id/interest_28"
             android:id="@+id/interest_30"
@@ -90,9 +84,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_edit_text_background"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
+            android:backgroundTint="@color/colorLightFont"
 
             />
 

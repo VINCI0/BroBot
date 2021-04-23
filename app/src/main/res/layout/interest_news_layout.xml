@@ -27,7 +27,7 @@
         android:padding="10dp">
 
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_15"
             android:text="Weather"
@@ -38,15 +38,14 @@
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
+            android:backgroundTint="@color/colorLightFont"
+            android:textColor="@color/colorPrimary"
 
             />
 
 
-        <EditText
+        <Button
             android:text="Health"
             android:id="@+id/interest_16"
             android:layout_toRightOf="@+id/interest_15"
@@ -55,14 +54,12 @@
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
+            android:tag="1"
 
             />
 
-        <EditText
+        <Button
             android:text="General News"
             android:layout_below="@id/interest_16"
             android:id="@+id/interest_17"
@@ -72,13 +69,14 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_edit_text_background"
+            android:backgroundTint="@color/colorLightFont"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
+
+
 
             />
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_18"
             android:layout_toRightOf="@+id/interest_17"
@@ -90,14 +88,13 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_edit_text_background"
+            android:backgroundTint="@color/colorLightFont"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
 
             />
 
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_19"
             android:text="Business"
@@ -109,13 +106,12 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_edit_text_background"
-            android:textColor="@color/colorPrimary"
-            android:enabled="false"
+            android:tag="1"
+
 
             />
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_20"
             android:text="Science"
@@ -127,10 +123,8 @@
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
+            android:tag="1"
 
             />
 

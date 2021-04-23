@@ -28,7 +28,7 @@
         android:padding="10dp">
 
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_1"
             android:text="Books"
@@ -39,13 +39,11 @@
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
+            android:tag="1"
             />
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_2"
             android:layout_toRightOf="@id/interest_1"
@@ -57,14 +55,13 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_edit_text_background"
+            android:backgroundTint="@color/colorLightFont"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
 
             />
 
-        <EditText
-            android:text="Pop Culture"
+        <Button
+            android:text="Culture"
             android:id="@+id/interest_3"
             android:layout_toRightOf="@+id/interest_2"
             android:layout_width="wrap_content"
@@ -73,13 +70,12 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_edit_text_background"
+            android:backgroundTint="@color/colorLightFont"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
 
             />
 
-        <EditText
+        <Button
             android:text="Industry News"
             android:layout_below="@id/interest_1"
             android:id="@+id/interest_4"
@@ -88,14 +84,13 @@
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
+            android:backgroundTint="@color/colorLightFont"
+            android:textColor="@color/colorPrimary"
 
             />
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_5"
             android:layout_toRightOf="@+id/interest_3"
@@ -105,15 +100,14 @@
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
+            android:tag="1"
+
 
             />
 
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_6"
             android:text="Movies"
@@ -125,14 +119,13 @@
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
+            android:tag="1"
+
 
             />
 
-        <EditText
+        <Button
 
             android:id="@+id/interest_7"
             android:text="Arts"
@@ -144,10 +137,9 @@
             android:padding="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edit_text_selected"
             android:textAllCaps="false"
-            android:textColor="@color/colorLightFont"
-            android:enabled="false"
+            android:tag="1"
+
             />
 
 
