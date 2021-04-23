@@ -3,6 +3,7 @@ package com.example.brobot;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,14 @@ import java.util.ArrayList;
 
 public class InterestsFragment extends Fragment implements View.OnClickListener {
     ArrayList<Button> interests = new ArrayList<>();
+
+    public ArrayList<Button> getInterests() {
+        return interests;
+    }
+
+    public void setInterests(ArrayList<Button> interests) {
+        this.interests = interests;
+    }
 
     @Nullable
     @Override
@@ -73,7 +82,16 @@ public class InterestsFragment extends Fragment implements View.OnClickListener 
         Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT);
 
 
-        if (v.getTag()){
+        if (v.getTag()==null) {
+
+            v.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            Button b = (Button) v;
+            b.setTextColor(getResources().getColor(R.color.colorLightFont));
+            v.setTag("1");
+            Toast.makeText(getActivity(), b.getText()+" Added To Interest", Toast.LENGTH_SHORT).show();
+
+        }
+        else{
         final int status = Integer.parseInt((String) v.getTag());
 
         if (status == 1) {
@@ -82,16 +100,23 @@ public class InterestsFragment extends Fragment implements View.OnClickListener 
             v.setBackgroundColor(getResources().getColor(R.color.colorLightFont));
             Button b = (Button) v;
             b.setTextColor(getResources().getColor(R.color.colorPrimary));
-        }
+            v.setTag("0");
+            Toast.makeText(getActivity(), b.getText()+" Removed  From Interest", Toast.LENGTH_SHORT).show();
+
         }
         else {
             v.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             Button b = (Button) v;
             b.setTextColor(getResources().getColor(R.color.colorLightFont));
+            v.setTag("1");
+            Toast.makeText(getActivity(), b.getText()+" Added To Interest", Toast.LENGTH_SHORT).show();
+
+        }
 
         }
 
     }
+
 
 
 
