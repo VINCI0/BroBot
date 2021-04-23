@@ -84,15 +84,16 @@ public class ChatFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         send = view.findViewById(R.id.fbMessageSend);
         messageContent = view.findViewById(R.id.etMessage);
-     //   chatActivity.fuser = chatActivity.mAuth.getCurrentUser();
+
+        messagesList.clear();
         GetMessageList(chatActivity.fuser.getUid());
-        Log.d("UIDD",chatActivity.fuser.getUid());
+       // Log.d("UIDD",fuser.getUid());
         record = view.findViewById(R.id.fbRecord);
 
         //navigationView= (NavigationView) navigationView.inflateHeaderView(R.layout.nav_header);
       /*  navigationView= (NavigationView) view.findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
-        user_name = (TextView) headerView.findViewById(R.id.navHeaderUserName);
+        user_name = (TextsView) headerView.findViewById(R.id.navHeaderUserName);
         user_name.setText(fuser.getDisplayName());*/
 
         messageContent.addTextChangedListener(new TextWatcher() {
@@ -200,7 +201,7 @@ public class ChatFragment extends Fragment {
         RequestQueue MyRequestQueue = Volley.newRequestQueue(getActivity());
         String url = LoginActivity.serverAddress + "/api/users/message/";
         final String userID = chatActivity.fuser.getUid();
-        Log.d("USER NAME ", chatActivity.fuser.getEmail());
+        //Log.d("USER NAME ", chatActivity.fuser.getEmail());
         JSONObject postparams = new JSONObject();
         try {
 

@@ -96,7 +96,7 @@ public class MoodFragment extends Fragment {
                 final Calendar cldr = Calendar.getInstance();
                 int day = cldr.get(Calendar.DAY_OF_MONTH);
                 int month = cldr.get(Calendar.MONTH);
-                month+=1;
+//                month+=1;
                 int year = cldr.get(Calendar.YEAR);
                 // date picker dialog
                 picker = new DatePickerDialog(Objects.requireNonNull(getActivity()), new DatePickerDialog.OnDateSetListener() {

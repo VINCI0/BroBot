@@ -57,8 +57,8 @@ public class chatActivity extends AppCompatActivity implements NavigationView.On
         View headerView = navigationView.getHeaderView(0);
         user_name = (TextView) headerView.findViewById(R.id.navHeaderUserName);
       //  Toast.makeText(this,,Toast.LENGTH_SHORT);
-        Log.d("USER_NAME",fuser.getDisplayName()+" hy");
-        user_name.setText(fuser.getEmail());
+//        Log.d("USER_NAME",fuser.getDisplayName()+" hy");
+         user_name.setText(fuser.getEmail());
 
 
         logout = findViewById(R.id.logout);
