@@ -125,6 +125,7 @@ public class ChatFragment extends Fragment {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (messageContent.getText().length() == 0) {
                     Toast.makeText(getActivity(), "Empty Message!", Toast.LENGTH_SHORT).show();
                 } else {
@@ -162,6 +163,8 @@ public class ChatFragment extends Fragment {
                 }
             }
         });
+
+
         return view;
     }
 

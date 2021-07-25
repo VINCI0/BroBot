@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        tools:context=".NewJournalActivity">
+
+        <EditText
+            android:id="@+id/newJournalTitle"
+            android:maxLength="50"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/journalTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
+
+        <Button
+            android:id="@+id/newJournalDatePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pickDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newJournalTitle"
+
+            />
+
+        <EditText
+            android:id="@+id/newJournalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/newJournalText"
+            android:inputType="textMultiLine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newJournalDatePicker"
+
+
+            />
+
+        <Button
+            android:id="@+id/saveNewJournal"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="@string/save"
+            app:layout_constraintEnd_toStartOf="@+id/discardNewJournal"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newJournalText" />
+
+        <Button
+
+            android:id="@+id/discardNewJournal"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:text="@string/discard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/saveNewJournal"
+            app:layout_constraintTop_toBottomOf="@+id/newJournalText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

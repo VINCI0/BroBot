@@ -6,17 +6,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<androidx.core.widget.NestedScrollView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dailyjournalHeader"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Daily Journal"/>
+        <ImageView
+            android:id="@+id/journalImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/journal_tv_dailyJournal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/journal_tv_dailyJournal"
+            app:srcCompat="@drawable/journal" />
 
-</androidx.core.widget.NestedScrollView>
+        <TextView
+            android:id="@+id/journal_tv_dailyJournal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/menu_dailyJournal"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/journalImage"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/addNewJounal_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="20dp"
+            app:srcCompat="@drawable/add"
+            android:contentDescription="@string/addNewJournal"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/dailyjournalHeader"
+        app:layout_constraintStart_toEndOf="parent"
+        >
+
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/journalList"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="80dp"
+        />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
