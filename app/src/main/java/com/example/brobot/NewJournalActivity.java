@@ -164,7 +164,8 @@ public class NewJournalActivity extends AppCompatActivity {
         JsonObjectRequest MyJsonRequest = new JsonObjectRequest(Request.Method.POST, url, postparams, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                try {response.get("msg_text").toString(),
+                try {
+                    response.get("msg_text").toString();
 
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -9,7 +9,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.overflowarchives.linkpreview.TelegramPreview;
+import com.overflowarchives.linkpreview.ViewListener;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -97,16 +101,36 @@ public class MessageListJavaAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     private class MessageInViewHolder extends RecyclerView.ViewHolder {
 
         TextView messageTV;
-
+        TelegramPreview preview;
         MessageInViewHolder(final View itemView) {
             super(itemView);
             messageTV = itemView.findViewById(R.id.text_received);
-
+            preview =  itemView.findViewById(R.id.link_preview);
+            preview.setVisibility(View.GONE);
+            preview.setEnabled(false);
         }
 
         void bind(int position) {
             Message message = list.get(position);
-            messageTV.setText(message.text);
+
+            if (containsURL(message.text)){
+                preview.setVisibility(View.VISIBLE);
+                preview.setEnabled(true);
+                preview.loadUrl(message.text, new ViewListener() {
+                    @Override
+                    public void onPreviewSuccess(boolean status) {
+                        // on success
+                    }
+                    @Override
+                    public void onFailedToLoad(@Nullable Exception e) {
+                        // on preview failed
+                    }
+                });
+            }else{
+                messageTV.setText(message.text);
+                preview.setVisibility(View.GONE);
+                preview.setEnabled(false);
+            }
 
         }
     }
