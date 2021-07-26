@@ -5,8 +5,23 @@
         <item>Reply to all</item>
     </string-array>
 
+
     <string-array name="reply_values">
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Prefer Not to Say</item>
+
+    </string-array>
+    <string-array name="gender_values">
+        <item>male</item>
+        <item>female</item>
+        <item>not_mentioned</item>
+
+    </string-array>
+
 </resources>
