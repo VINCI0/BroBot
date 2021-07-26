@@ -70,4 +70,11 @@
     <string name="newJournalText">Journal Goes Here ...</string>
     <string name="save">Save</string>
     <string name="discard">Discard</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="nickName">Name</string>
+    <string name="gender_title">Gender</string>
+    <string name="emergency_contacts">EMERGENCY CONTACTS</string>
+    <string name="contact">Contact</string>
+    <string name="primary_contact">Primary Contact</string>
+    <string name="secondary_contact">Secondary Contact</string>
 </resources>
