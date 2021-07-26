@@ -227,6 +227,9 @@ public class ChatFragment extends Fragment {
                             Long.parseLong(response.get("timestamp").toString())));
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    if (messagesList.get(messagesList.size()-1).equals("typing...")) {
+                        messagesList.remove(messagesList.size() - 1);
+                    }
                     Log.d("CATCH", e.getMessage());
                     Toast.makeText(getActivity(),"Sever not running!",Toast.LENGTH_SHORT);
                 }

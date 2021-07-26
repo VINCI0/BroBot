@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,13 +32,51 @@ import java.util.Date;
 public class DailyJournalFragment extends Fragment {
 
     ImageView addNewJournal;
-    RecyclerView journalsRecycler;
+    static RecyclerView journalsRecycler;
+    static RecyclerView.Adapter adapter;
     public static ArrayList<Journal> journalsList = new ArrayList<Journal>();
     // hash
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        View view= inflater.inflate(R.layout.fragment_daily_journal,container,false);
+        addNewJournal=view.findViewById(R.id.addNewJounal_ic);
+        journalsRecycler=view.findViewById(R.id.journalList);
+
+        if (journalsList.size()==0) {
+           GetJournals();
+        }else{
+            journalsList.clear();
+            GetJournals();
+        }
+
+        adapter=new DailyJournalListAdapter(getActivity(),journalsList);
+        LinearLayoutManager lm = new LinearLayoutManager(getActivity());
+        lm.setStackFromEnd(true);
+        journalsRecycler.setLayoutManager(lm);
+        journalsRecycler.setAdapter(adapter);
+
+        adapter.notifyDataSetChanged();
+        journalsRecycler.smoothScrollToPosition(adapter.getItemCount());
+
+        addNewJournal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),NewJournalActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        return view;
+
+    }
     void GetJournals(){
         RequestQueue MyRequestQueue = Volley.newRequestQueue(getActivity());
         final String userID = chatActivity.fuser.getUid();
-        String url = LoginActivity.serverAddress + "/api/users/interest/" + userID;
+        String url = LoginActivity.serverAddress + "/api/users/journal/" + userID;
         // Toast.makeText(getActivity(), url, Toast.LENGTH_SHORT).show();
         Log.d("UIDD",userID);
         JsonArrayRequest MyJsonRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
@@ -52,7 +91,11 @@ public class DailyJournalFragment extends Fragment {
                         Date date=new Date((long) journal.get("timestamp"));
                         Journal journal_obj = new Journal(title,
                                 text,date);
+                        System.out.println(title+text);
+                      //  Toast.makeText(getActivity(), journal_obj.title+" "+journal_obj.text, Toast.LENGTH_SHORT).show();
                         journalsList.add(journal_obj);
+                        adapter.notifyDataSetChanged();
+                        journalsRecycler.smoothScrollToPosition(adapter.getItemCount());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -71,39 +114,6 @@ public class DailyJournalFragment extends Fragment {
                 30000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-
-    }
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View view= inflater.inflate(R.layout.fragment_daily_journal,container,false);
-        addNewJournal=view.findViewById(R.id.addNewJounal_ic);
-        journalsRecycler=view.findViewById(R.id.journalList);
-
-        if (journalsList.size()==0) {
-           GetJournals();
-        }else{
-            journalsList.clear();
-            GetJournals();
-        }
-
-        RecyclerView.Adapter adapter=new DailyJournalListAdapter(getActivity(),journalsList);
-        LinearLayoutManager lm = new LinearLayoutManager(getActivity());
-        lm.setStackFromEnd(true);
-        journalsRecycler.setLayoutManager(lm);
-        journalsRecycler.setAdapter(adapter);
-
-        addNewJournal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(),NewJournalActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-        return view;
 
     }
 }

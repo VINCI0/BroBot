@@ -51,7 +51,7 @@ public class InterestsFragment extends Fragment implements View.OnClickListener 
         //give ids to
         if (is_interest.size()==0) {
             for (int i = 0; i < 30; i++) {
-                is_interest.add(true);
+                is_interest.add(false);
             }
         }
         GetInterests();
@@ -121,7 +121,7 @@ public class InterestsFragment extends Fragment implements View.OnClickListener 
             Button b = (Button) v;
             b.setTextColor(getResources().getColor(R.color.colorLightFont));
             v.setTag("1");
-            Toast.makeText(getActivity(), b.getText()+" Added To Interest 1", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), b.getText()+" Added To Interest", Toast.LENGTH_SHORT).show();
 
             is_interest.set(interests.indexOf(b),true);
             PostInterest(b.getText().toString(), true);
@@ -147,7 +147,7 @@ public class InterestsFragment extends Fragment implements View.OnClickListener 
             Button b = (Button) v;
             b.setTextColor(getResources().getColor(R.color.colorLightFont));
             v.setTag("1");
-            Toast.makeText(getActivity(), b.getText()+" Added To Interest 2", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), b.getText()+" Added To Interest", Toast.LENGTH_SHORT).show();
             is_interest.set(interests.indexOf(b),true);
             PostInterest(b.getText().toString(), true);
         }
@@ -215,7 +215,7 @@ public class InterestsFragment extends Fragment implements View.OnClickListener 
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    response.get("title").toString();
+                    System.out.println(response.get("title").toString());
 
                 } catch (JSONException e) {
 
