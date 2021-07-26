@@ -57,7 +57,7 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="enterName">Enter Your Name</string>
     <string name="pickDate">Pick Date</string>
-    <string name="viewMoodByDate" >View Mood By Date</string>
+    <string name="viewMoodByDate">View Mood By Date</string>
     <string name="cancel">Cancel</string>
     <string name="Interest_Entertainment">Entertainment</string>
     <string name="EmotionDescription">Emotion Score Ranging From -1 To 1 \n\n
@@ -65,4 +65,9 @@
        \t\t\t\t 0 ---> \tSatisfactory \n
         \t\t\t\t-1 ---> \tNegative \n
     </string>
+    <string name="addNewJournal">Add New Journal</string>
+    <string name="journalTitle">Enter Journal Title</string>
+    <string name="newJournalText">Journal Goes Here ...</string>
+    <string name="save">Save</string>
+    <string name="discard">Discard</string>
 </resources>
