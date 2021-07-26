@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText email, password;
     FirebaseAuth auth;
     FirebaseUser firebaseUser;
-    public static final String serverAddress = "http://39.32.126.18:9001";
+    public static final String serverAddress = "http://39.32.90.238:9001";
 
     @Override
     protected void onStart() {

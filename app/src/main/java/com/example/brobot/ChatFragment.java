@@ -225,6 +225,7 @@ public class ChatFragment extends Fragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Log.d("CATCH", e.getMessage());
+                    Toast.makeText(getActivity(),"Sever not running!",Toast.LENGTH_SHORT);
                 }
                 Log.d("CATCH", "RES");
                 adapter.notifyDataSetChanged();
