@@ -7,14 +7,25 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -111,6 +122,10 @@ public class NewJournalActivity extends AppCompatActivity {
                         Date newDate=formatter.parse(date.getText().toString());
                         Journal journal=new Journal( title.getText().toString(),text.getText().toString(),newDate);
                         DailyJournalFragment.journalsList.add(journal);
+                        for (int i =0;i<DailyJournalFragment.journalsList.size();i++){
+                            PostJournal(DailyJournalFragment.journalsList.get(i),i);
+                        }
+
 
                     } catch (ParseException e) {
                         e.printStackTrace();
@@ -124,4 +139,55 @@ public class NewJournalActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    //post: journal/
+    void PostJournal(Journal journal,int idx){
+        RequestQueue MyRequestQueue = Volley.newRequestQueue(this);
+        String url = LoginActivity.serverAddress + "/api/users/journal/";
+        final String userID = chatActivity.fuser.getUid();
+        //Log.d("USER NAME ", chatActivity.fuser.getEmail());
+        JSONObject postparams = new JSONObject();
+        try {
+
+            postparams.put("user", userID);
+            postparams.put("title", journal.title);
+            postparams.put("text", journal.text);
+            postparams.put("timestamp", journal.date.getTime());
+            postparams.put("is_deleted", false);
+            postparams.put("index", idx);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+
+        }
+        JsonObjectRequest MyJsonRequest = new JsonObjectRequest(Request.Method.POST, url, postparams, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {response.get("msg_text").toString(),
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+
+                }
+                Log.d("CATCH", "RES");
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        MyRequestQueue.add(MyJsonRequest);
+        //set timeout to 15 seconds
+        MyJsonRequest.setRetryPolicy(new DefaultRetryPolicy(
+                30000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+    }
+
+
+
 }
